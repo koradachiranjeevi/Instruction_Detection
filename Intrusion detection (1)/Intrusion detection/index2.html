@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time AAPL Stock Data</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Date-fns Adapter -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <!-- date-fns Library -->
+    <script src="https://cdn.jsdelivr.net/npm/date-fns"></script>
+</head>
+<body>
+    <h1>Real-Time AAPL Stock Data</h1>
+    <canvas id="stockChart" width="400" height="200"></canvas>
+
+    <script>
+        const apiKey = 'T6IF9M2WT9TU9NGL';
+        const symbol = 'AAPL';
+        const interval = '1min'; // 1-minute interval for real-time data
+        const apiUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=${interval}&apikey=${apiKey}`;
+
+        async function fetchData() {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            return data['Time Series (1min)'];
+        }
+
+        function formatData(data) {
+            const labels = [];
+            const prices = [];
+
+            for (const [time, value] of Object.entries(data)) {
+                labels.push(new Date(time));
+                prices.push(parseFloat(value['4. close']));
+            }
+
+            return {
+                labels: labels.reverse(),
+                prices: prices.reverse()
+            };
+        }
+
+        function createChart(labels, prices) {
+            const ctx = document.getElementById('stockChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'AAPL Stock Price',
+                        data: prices,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        fill: true,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'minute'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function updateChart() {
+            const rawData = await fetchData();
+            const { labels, prices } = formatData(rawData);
+            createChart(labels, prices);
+        }
+
+        // Initial chart creation
+        updateChart();
+
+        // Update chart every minute
+        setInterval(updateChart, 60000);
+    </script>
+</body>
+</html>

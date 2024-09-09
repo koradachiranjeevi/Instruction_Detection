@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live AAPL Stock Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Live AAPL Stock Data</h1>
+    <canvas id="stockChart" width="400" height="200"></canvas>
+    
+    <script>
+        async function fetchStockData() {
+            const response = await fetch('/api/stock_data/AAPL');
+            const data = await response.json();
+            return data;
+        }
+
+        function plotStockData(data) {
+            const labels = Object.keys(data['Close']);
+            const prices = Object.values(data['Close']);
+
+            const ctx = document.getElementById('stockChart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'AAPL Close Price',
+                        data: prices,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'time',
+                            time: {
+                                unit: 'day'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        async function updateChart() {
+            const stockData = await fetchStockData();
+            plotStockData(stockData);
+        }
+
+        updateChart();
+        setInterval(updateChart, 60000);  // Update every minute
+    </script>
+</body>
+</html>

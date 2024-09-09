@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel= "stylesheet" type= "text/css" href= "static\style\css\styles.css">
+
+        <title>Ova track</title>
+    </head>
+    <body>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo"><h1>Ova track.</h1></a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="/" class="nav__link active-link">Home</a></li>
+                        
+                        <li class="nav__item"><a href="/dash" class="nav__link">Predict</a></li>
+                       
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+        <!--========== HEADER ENDS ==========-->
+
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <h1 class="home__title">Welcome!<br>Track your fertility</h1>
+                        <h3 class="home__subtitle">take control of your future with OvaTrack .</h3>
+                        
+                        <a href="/dash" class="button">Predict</a>
+                        <!-- <a class="nav-link" href="/predict">View Expenses</a> -->
+                    </div>
+                    
+                    <img src="static/ova_tracker.png" alt = "" class="home__img">
+                </div>
+            </section>
+
+            <!--========== ABOUT ==========-->
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">About Pcos</span>
+                        <h2 class="section-title about__initial">Polycystic Ovary Syndrome<br> (PCOS)</h2>
+                        <p class="about__description">Polycystic ovary syndrome (PCOS) is a condition in which the ovaries produce an abnormal amount of androgens, male sex hormones that are usually present in women in small amounts. The name polycystic ovary syndrome describes the numerous small cysts (fluid-filled sacs) that form in the ovaries. However, some women with this disorder do not have cysts, while some women without the disorder do develop cysts..</p>
+                        <a href="{{ url_for('about') }}" class="button">Info</a>
+                    </div>
+
+                    <img src="static/pcoslogo.png" alt="" class="about__img">
+                </div>
+            </section>
+
+           
+        <!-- ========== FOOTER ENDS ========== -->
+        <footer class="footer section bd-container">
+        </footer>
+
+        <!--========== LOADER ==========-->
+        <!-- <div class="loader-container">
+            <img src="assets/img/loader.gif" alt="">
+        </div> -->
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="static/style/js/main.js"></script>
+    </body>
+</html>

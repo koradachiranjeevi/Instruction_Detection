@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel= "stylesheet" type= "text/css" href= "static\style\css\styles.css">
+
+        <title>Ova track</title>
+    </head>
+    <body>
+
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo"><h1>StockPLoter.</h1></a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                        
+                        <li class="nav__item"><a href="/dash" class="nav__link">Plot</a></li>
+                       
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+        <!--========== HEADER ENDS ==========-->
+
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <h1 class="home__title">Welcome!<br>Track your Stocks!</h1>
+                        <h3 class="home__subtitle">take control of your Stocks .</h3>
+                        
+                        <a href="/dash" class="button">Plot</a>
+                        <!-- <a class="nav-link" href="/predict">View Expenses</a> -->
+                    </div>
+                    
+                    <img src="static\stock.png" alt = "" class="home__img">
+                </div>
+            </section>
+
+            <!--========== ABOUT ==========-->
+            <section class="about section bd-container" id="about">
+                <div class="about__container  bd-grid">
+                    <div class="about__data">
+                        <span class="section-subtitle about__initial">About Tickstream Attack</span>
+                        <h2 class="section-title about__initial">Tickstream Attack<br></h2>
+                        <p class="about__description">This attack focuses on intercepting or altering tick-by-tick data. This attack in the stock market is a type of cyber attack where an attacker secretly intercepts and possibly alters the communication between two parties without their knowledge. Here's a detailed look at how it works and its implications
+                        </p>
+                        <!-- <a href="{{ url_for('about') }}" class="button">Info</a> -->
+                    </div>
+
+                    <img src="static\tickstream.png" alt="" class="about__img">
+                </div>
+            </section>
+
+           
+        <!-- ========== FOOTER ENDS ========== -->
+        <footer class="footer section bd-container">
+        </footer>
+
+        <!--========== LOADER ==========-->
+        <!-- <div class="loader-container">
+            <img src="assets/img/loader.gif" alt="">
+        </div> -->
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="static/style/js/main.js"></script>
+    </body>
+</html>
